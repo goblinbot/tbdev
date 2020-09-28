@@ -1,0 +1,30 @@
+{
+	"name": "tbdev",
+	"version": "1.0.0",
+	"description": "Personal site",
+	"main": "index.js",
+	"scripts": {
+		"start": "npm run sass",
+		"sass": "sass -s compressed ./stylesheets/main.scss ./stylesheets/main.css",
+		"watch": "sass -s compressed ./stylesheets/main.scss ./stylesheets/main.css --watch",
+		"sass-x": "sass ./exp",
+		"sass-x-w": "sass ./exp --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://goblinbot@github.com/goblinbot/tbdev.git"
+	},
+	"keywords": [
+		"website",
+		"scss"
+	],
+	"author": "Thijs Boerma",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/goblinbot/tbdev/issues"
+	},
+	"homepage": "https://github.com/goblinbot/tbdev#readme",
+	"dependencies": {
+		"sass": "^1.26.10"
+	}
+}

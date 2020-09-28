@@ -2,3 +2,6 @@
 *.css.map
 *.sass.map
 *.scss.map
+/experiments/**/*.css
+/stylesheets/*/*.css
+node_modules/

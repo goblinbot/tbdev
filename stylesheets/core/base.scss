@@ -1,0 +1,70 @@
+@use '../abstracts/sizes';
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 16px;
+	font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif; // TODO
+	letter-spacing: 0;
+	min-width: sizes.$body-min;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+}
+
+::placeholder {
+  text-overflow: ellipsis;
+}
+
+button {
+	background: none;
+	border: none;
+	box-shadow: none;
+	font-size: inherit;
+	font-weight: inherit;
+	padding: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+	display: block;
+	width: 100%;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0.01em 0 0 0;
+}
+
+legend {
+  display: table;
+}
+
+iframe {
+  display: block;
+  border-width: 0;
+  padding: 0;
+  width: 100%;
+}

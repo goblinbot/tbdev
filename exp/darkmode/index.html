@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>tbDev / scriptless darkmode</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <link rel="stylesheet" href="dm.css">
+  <link rel="canonical" href="https://thijsboerma.dev/exp/darkmode/">
+  <base href="/" />
+</head>
+
+<body>
+
+  <label class="dm-label" for="dm-toggle" id="dm-label" role="switch" aria-label="Toggle between visual light and dark mode">
+    <span class="hidden--visually">Toggle between visual light and dark mode</span>
+  </label>
+  <input class="dm" type="checkbox" id="dm-toggle" name="dm-toggle" aria-labelledby="dm-label">
+
+  <div class="page">
+    <header>
+      <h1>Scriptless Darkmode</h1>
+      <p>A styling-only experiment.</p>
+    </header>
+
+    <main>
+      <h2>
+        Use the toggle to switch to <label role="switch" for="dm-toggle" class="not-current" aria-labelledby="dm-label">
+          <span class="hidden--visually">Toggle between visual light and dark mode</span>
+        </label>.
+      </h2>
+
+      <noscript>
+        <p>(Yes, disabling Javascript works)</p>
+      </noscript>
+    </main>
+
+  </div>
+
+</body>
+
+</html>

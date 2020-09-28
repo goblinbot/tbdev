@@ -1,0 +1,169 @@
+@use '../../stylesheets/abstracts/sizes';
+@use '../../stylesheets/core';
+@use '../../stylesheets/modifiers';
+
+$_light-primary: #302ae6;
+$_light-secondary: #536390;
+$_light-font: #424242;
+$_light-bg: #fff;
+$_light-heading: #292922;
+
+$_dark-primary: #9a97f3;
+$_dark-secondary: #818cab;
+$_dark-font: #e1e1ff;
+$_dark-bg: #161625;
+$_dark-heading: #818cab;
+
+$_toggle-bg: #c7c7c7;
+$_toggle-bright: #fffaaf;
+$_toggle-dim: darken($_toggle-bright, 33%);
+$_toggle-size: 1.6rem;
+
+@mixin dmode {
+	.dm:checked + .page & {
+		@content;
+	}
+}
+
+@mixin _page {
+	display: block;
+	margin: 2rem auto;
+	max-width: 610px;
+	min-width: sizes.$body-min;
+	padding: 1.5rem;
+	width: 100%;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin: 1.6rem 0 0.8rem 0;
+}
+
+p {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+body {
+	position: relative;
+}
+
+label {
+	cursor: pointer;
+}
+
+.dm-label {
+	position: absolute;
+	left: calc(50% - 4.8rem);
+	top: -2rem;
+	padding: 2.8rem 4.8rem;
+}
+
+.dm {
+	-webkit-appearance: none;
+	background: $_toggle-bg;
+	border-radius: $_toggle-size;
+	cursor: pointer;
+	display: block;
+	height: $_toggle-size;
+	margin: 2rem auto;
+	position: relative;
+	width: (2 * $_toggle-size);
+
+	&:focus,
+	&:focus-within {
+		outline: 0;
+	}
+
+	&::before {
+		background: $_toggle-bright;
+		content: '';
+		position: absolute;
+		width: $_toggle-size;
+		height: $_toggle-size;
+		border-radius: $_toggle-size;
+		top: 0;
+		left: 0;
+		transform: scale(1.2);
+		transition: 0.3s ease-in-out;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		background: darken($_toggle-bg, 25%);
+		top: -0.5rem;
+		border-radius: 1.6rem;
+		left: -0.8rem;
+		width: 4.8rem;
+		height: 2.6rem;
+		transition: 0.3s ease-in-out;
+		z-index: -1;
+	}
+
+	&:checked {
+		&::before {
+			background: $_toggle-dim;
+			left: ($_toggle-size * 1.1);
+		}
+
+		&::after {
+			background: darken($_toggle-bg, 50%);
+		}
+	}
+}
+
+.page {
+	@include _page;
+	background-color: $_light-bg;
+	border: 1px solid darken($_light-bg, 15%);
+	color: $_light-font;
+	min-height: 16rem;
+	transition: 0.2s ease-out;
+
+	&::after {
+		content: '';
+		background: $_light-bg;
+		top: 0;
+		left: 0;
+		position: fixed;
+		user-select: none;
+		height: 100vh;
+		width: 100vw;
+		transition: 0.2s ease-out;
+		z-index: -2;
+	}
+
+	// darkmode enabled, for page and fake body
+	:checked + & {
+		background-color: $_dark-bg;
+		border: 1px solid lighten($_dark-bg, 15%);
+		color: $_dark-font;
+
+		&::after {
+			background: $_dark-bg;
+		}
+	}
+}
+
+.not-current {
+	color: $_light-primary;
+
+	&::before {
+		content: 'dark mode';
+		text-decoration: underline;
+	}
+
+	@include dmode {
+		color: $_dark-primary;
+
+		&::before {
+			content: 'light mode';
+		}
+	}
+}
