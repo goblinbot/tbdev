@@ -1,0 +1,91 @@
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  background: linear-gradient(0deg, #222, #262e3e);
+  color: #dedede;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hidden--visually {
+  margin-top: -20vh;
+}
+
+.prs-page {
+  display: block;
+  margin: 0;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+.prs-page .from-top {
+  top: 2rem;
+  position: relative;
+  margin: 0 auto;
+}
+.prs-page .container {
+  animation: opacity 0.2s linear forwards;
+  min-width: 1024px;
+}
+.prs-page .css-is-awesome {
+  border: 3px solid #dedede;
+  border-radius: 5px;
+  position: relative;
+  margin: 0 auto;
+  padding: 15px;
+  top: 30vh;
+  min-height: 246.1538461538px;
+  width: 320px;
+}
+.prs-page .css-is-awesome h1 {
+  color: #dedede;
+  font-size: 5.6rem;
+  width: 480px;
+}
+.prs-page .hexagon {
+  width: 300px;
+  height: 600px;
+  margin: -80px 0 0 20px;
+  overflow: hidden;
+  visibility: hidden;
+  transform: rotate(120deg);
+}
+.prs-page .hexagon-in1 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-60deg);
+}
+.prs-page .hexagon-in2 {
+  width: 100%;
+  height: 100%;
+  background-color: #343a40;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  visibility: visible;
+  transform: rotate(-60deg);
+}
+.prs-page .ball {
+  width: 200px;
+  border-radius: 100%;
+  padding: 20px;
+  height: 200px;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  margin: 100px auto 0 auto;
+  text-align: center;
+  color: #343a40;
+  background: #343a40;
+}
+
+/*# sourceMappingURL=style.css.map */

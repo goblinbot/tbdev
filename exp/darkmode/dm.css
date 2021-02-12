@@ -125,6 +125,7 @@ header,
 hgroup,
 section {
   display: block;
+  position: relative;
   width: 100%;
 }
 
