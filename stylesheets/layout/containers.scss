@@ -1,0 +1,23 @@
+@use '../abstracts/' as *;
+
+.container {
+	margin: 0 auto;
+	min-height: 0.8rem;
+	width: 100%;
+
+  @include media-medium {
+    max-width: ($media-medium-width);
+    padding: 0 1.6rem;
+  }
+
+  @include media-large {
+    max-width: ($media-large-width);
+    padding: 0 2.4rem;
+  }
+
+  &--full {
+    max-width: 100%;
+    padding: 0;
+  }
+
+}

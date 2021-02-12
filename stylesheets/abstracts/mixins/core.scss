@@ -1,0 +1,25 @@
+@use '../sizes' as s;
+
+@mixin media-large {
+  @media screen and (min-width: s.$media-large-width) {
+    @content;
+  }
+}
+
+@mixin media-medium-only {
+  @media screen and (min-width: s.$media-medium-width) and (max-width: (s.$media-large-width - 1px)) {
+    @content;
+  }
+}
+
+@mixin media-medium {
+  @media screen and (min-width: s.$media-medium-width) {
+    @content;
+  }
+}
+
+@mixin media-small {
+  @media screen and (max-width: (s.$media-medium-width - 1px)) {
+    @content;
+  }
+}

@@ -1,0 +1,110 @@
+@use '../abstracts/' as *;
+
+$_column-count: 12;
+$_offset: (100% / $_column-count);
+
+@mixin _flex-columns {
+	flex: 1;
+
+	@for $i from 0 through $_column-count {
+		&-#{$i} {
+			flex: $i;
+		}
+
+		&-auto {
+			flex: auto;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	width: 100%;
+
+	@include media-small {
+		flex-direction: column;
+	}
+
+	@each $_direction in row, column, row-reverse, column-reverse {
+		&--#{$_direction} {
+			flex-direction: $_direction;
+		}
+	}
+
+	@each $_name,
+		$_flow
+			in (
+				start: flex-start,
+				end: flex-end,
+				center: center,
+				between: space-between,
+				around: space-around,
+				stretch: stretch
+			)
+	{
+		@if $_name != stretch {
+			&--#{$_name} {
+				justify-content: $_flow;
+			}
+		}
+
+		@if $_name != between {
+			&--align-content-#{$_name} {
+				align-content: $_flow;
+			}
+
+			&--align-items-#{$_name} {
+				align-items: $_flow;
+			}
+
+			&--align-self-#{$_name} {
+				align-self: $_flow;
+			}
+		}
+	}
+
+	&__col {
+		@include _flex-columns;
+		margin: 0;
+
+		&-auto {
+			flex: auto;
+		}
+
+		@include media-small {
+			&--s {
+				@include _flex-columns;
+			}
+		}
+
+		@include media-medium-only {
+			&--m {
+				@include _flex-columns;
+			}
+		}
+
+		@include media-medium {
+			margin: 0 auto;
+		}
+
+		@include media-large {
+			&--l {
+				@include _flex-columns;
+			}
+		}
+
+		& + & {
+			margin-left: 1.6rem;
+		}
+	}
+
+	&--row > &__col + &__col {
+		margin: 0 auto 0 1.6rem;
+	}
+
+	&--column > &__col + &__col {
+		margin: 1.6rem auto 0 0;
+	}
+}

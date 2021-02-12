@@ -1,8 +1,6 @@
 @use '../abstracts/mixins';
 
 .hidden {
-
-
   &--visually {
     @include mixins.hide-visually;
   }
